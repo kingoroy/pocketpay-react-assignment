@@ -1,0 +1,8 @@
+@import './_variables.scss';
+
+.jewelry-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap:1rem }
+.j-card { padding:1rem; border-radius:8px; background:linear-gradient(180deg,$card-bg,#fbfcff); box-shadow:0 6px 18px rgba(2,6,23,0.04) }
+.j-card h5 { margin:0 0 .5rem }
+.j-card .meta { color:$muted; font-size:.85rem }
+.j-card .actions { margin-top:.6rem; display:flex; gap:.5rem }
+.j-card button { padding:.4rem .6rem; border-radius:6px; border:1px solid rgba(230,238,252,0.8); background:transparent; cursor:pointer }

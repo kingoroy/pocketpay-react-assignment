@@ -1,0 +1,22 @@
+@import './_variables.scss';
+
+/* inline field-level error (simple red text, no border) */
+.field-error { color: $error-red; margin-top: .25rem; font-size: 0.9rem; }
+
+.error { margin-top:.6rem; padding:.6rem .8rem; border-radius:6px; background:#fff4f4; color:#7f1d1d; border:1px solid #fecaca }
+.error--EMAIL_EXISTS { background:#fff7ed; color:#663c00; border-color:#ffedd5 }
+.error--INVALID_PASSWORD { background:#fff1f2; color:#9f1239; border-color:#fecdd3 }
+.error--USER_NOT_FOUND { background:#f8fafc; color:$text; border-color:#e2e8f0 }
+.error--LOGIN_ERROR, .error--SIGNUP_ERROR { background:#fff4f4; color:#7f1d1d; border-color:#fecaca }
+
+/* spacing helpers used to replace inline styles in components */
+.mt-1 { margin-top: .6rem }
+.mt-2 { margin-top: 1rem }
+.mb-3 { margin-bottom: .75rem }
+.text-center { text-align: center }
+.muted { color: $subtext1 }
+.muted-2 { color: $subtext2 }
+
+/* small utilities */
+.flex-between { display:flex; justify-content:space-between; align-items:center }
+.primary-small { background:$primary; color:#fff; border:none; padding:.4rem .6rem; border-radius:6px; cursor:pointer }

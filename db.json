@@ -1,0 +1,109 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "demo@demo.com",
+      "password": "password",
+      "name": "Demo User"
+    },
+    {
+      "id": 2,
+      "name": "kingshuk",
+      "email": "k@g.com",
+      "password": "helloSWorld"
+    }
+  ],
+  "jewelry": [
+    {
+      "userId": 1,
+      "items": [
+        {
+          "id": 1,
+          "userId": 1,
+          "name": "Gold Ring",
+          "karat": "14K",
+          "value": "$200"
+        },
+        {
+          "id": 1757335006614,
+          "name": "bangles",
+          "karat": "24k",
+          "value": "300",
+          "userId": 1
+        },
+        {
+          "id": 1757338730197,
+          "name": "Kingshuk Roy",
+          "karat": "24",
+          "value": "100",
+          "userId": 1
+        }
+      ]
+    },
+    {
+      "userId": 2,
+      "items": [
+        {
+          "id": 1,
+          "userId": 2,
+          "name": "Starter Necklace",
+          "karat": "18K",
+          "value": "$1000"
+        },
+        {
+          "id": 1757335335052,
+          "name": "bangles",
+          "karat": "24K",
+          "value": "500",
+          "userId": 2
+        }
+      ]
+    }
+  ],
+  "transactions": [
+    {
+      "userId": 1,
+      "items": [
+        {
+          "id": 1,
+          "userId": 1,
+          "date": "2023-01-01",
+          "description": "Initial balance",
+          "amount": "+$200"
+        }
+      ]
+    },
+    {
+      "userId": 2,
+      "items": [
+        {
+          "id": 1,
+          "userId": 2,
+          "date": "2025-09-08",
+          "description": "Account created",
+          "amount": "+$0"
+        }
+      ]
+    }
+  ],
+  "wallets": [
+    {
+      "userId": 1,
+      "items": [
+        {
+          "id": 1,
+          "balance": "$200"
+        }
+      ]
+    },
+    {
+      "userId": 2,
+      "items": [
+        {
+          "id": 1,
+          "balance": "$0.00"
+        }
+      ]
+    }
+  ]
+}

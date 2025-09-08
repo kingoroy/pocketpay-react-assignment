@@ -1,0 +1,10 @@
+{
+  "/api/auth/login": "/auth/login",
+  "/api/auth/signup": "/auth/signup",
+  "/api/users": "/users",
+  "/api/users/:id": "/users/:id",
+  "/api/jewelry": "/jewelry",
+  "/api/jewelry/:id": "/jewelry/:id",
+  "/api/transactions": "/transactions",
+  "/api/wallet/:id": "/wallets/:id"
+}

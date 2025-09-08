@@ -68,3 +68,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Mock API (json-server)
+
+Run the mock API server with custom routes on port 5000:
+
+```powershell
+npm run server
+```
+
+This runs:
+
+node server.js (starts json-server programmatically using routes.json on port 5000)
+
+APIs are available under: http://localhost:5000/api/...
