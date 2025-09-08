@@ -1,9 +1,10 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '/api', // send requests under /api so server's /api/* routes are reached
+  baseURL: process.env.REACT_APP_API_URL || '/api',
   headers: { 'Content-Type': 'application/json' },
 });
+
 
 // Simple client-side mock for auth endpoints so json-server doesn't need custom routes.
 api.interceptors.request.use(async (config) => {
