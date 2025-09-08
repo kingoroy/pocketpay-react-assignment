@@ -1,12 +1,40 @@
 @import './_variables.scss';
 
 .nav {
-  padding: 1rem 0;
-  background: $card-bg;
-  box-shadow: 0 6px 18px rgba(12, 41, 75, 0.06);
+    padding: 1rem 0;
+    background: $card-bg;
+    box-shadow: 0 6px 18px $shadow-1;
 }
-.nav .container { display:flex; justify-content:space-between; align-items:center }
-.nav a { text-decoration:none; color:$primary; font-weight:600; margin-right:1rem }
-.nav .brand { font-size:1.2rem; font-weight:700 }
-.nav .actions { display:flex; gap:.5rem; align-items:center }
-.nav button { background:transparent; border:1px solid rgba(230,238,252,0.8); padding:.4rem .7rem; border-radius:6px; color:$primary; cursor:pointer }
+
+.nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.nav a {
+    text-decoration: none;
+    color: $primary;
+    font-weight: 600;
+    margin-right: 1rem
+}
+
+.nav .brand {
+    font-size: 1.2rem;
+    font-weight: 700
+}
+
+.nav .actions {
+    display: flex;
+    gap: .5rem;
+    align-items: center
+}
+
+.nav button {
+    background: transparent;
+    border: 1px solid $border-muted;
+    padding: .4rem .7rem;
+    border-radius: 6px;
+    color: $primary;
+    cursor: pointer
+}
