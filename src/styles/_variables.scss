@@ -5,4 +5,20 @@ $text: #0f172a;
 $subtext1: #64748b; // lighter muted text
 $subtext2: #475569; // darker muted text
 $card-bg: #ffffff;
+$white: #ffffff;
+$black: #000000;
+$border-muted: #e8eef7; // subtle borders
+$shadow-1: rgba(2,6,23,0.06);
+$shadow-2: rgba(2,6,23,0.04);
 $error-red: #b91c1c;
+$error-bg: #fff1f2;
+$warn-bg: #fff7ed;
+$warn-color: #663c00;
+$success: #16a34a;
+
+// convenience aliases for gradients
+$card-gradient-top: $card-bg;
+$card-gradient-bottom: #fbfcff;
+$warn-border: #ffedd5;
+$error-border: #fecdd3;
+$error-border-2: #fecaca;

@@ -25,60 +25,106 @@ Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# PocketPay — React mock fintech app
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Small demo React app with a mock JSON-backed API for local development. It includes:
 
-### `npm run eject`
+- Login / Signup (mocked auth)
+- Dashboard: wallet summary, recent transactions, jewelry list
+- Jewelry CRUD (create / edit / delete)
+- Redux Toolkit for state management
+- SASS for styling (component SCSS files)
+- Lightweight Node mock server that reads/writes `db.json` (no external dependency required)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Quick start — prerequisites
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Node.js 16+ and npm installed
+- Git for cloning the repo
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-## Mock API (json-server)
-
-Run the mock API server with custom routes on port 5000:
+Install dependencies
 
 ```powershell
-npm run server
+npm install
 ```
 
-This runs:
+Run the mock API server
 
-node server.js (starts json-server programmatically using routes.json on port 5000)
+The project includes a minimal Node `server.js` that reads/writes `db.json` and exposes a small REST API on port 5000.
 
-APIs are available under: http://localhost:5000/api/...
+```powershell
+# start the mock API
+node server.js
+# the server will print: Mock API server running on http://localhost:5000
+```
+
+APIs are available under: `http://localhost:5000/api/...` (for example, `/api/login`, `/api/signup`, `/api/jewelry`).
+
+Run the React app
+
+```powershell
+npm start
+```
+
+Open `http://localhost:3000` to view the app in your browser. The React app is configured to use `/api` as the base for API calls. When both the frontend (3000) and the mock server (5000) are running locally, API calls are proxied to the mock server via the development proxy or the axios instance baseURL (see `src/services/api.js`).
+
+Reset or inspect the mock DB
+
+- The mock database is `db.json` at the repo root. It persists data written by the mock server.
+- To reset the data, restore `db.json` from git or copy a backup.
+
+Development notes
+
+- Styles are in `src/styles/` and split into component files (`auth.scss`, `dashboard.scss`, `jewelry.scss`, `navbar.scss`, `utilities.scss`). `src/styles/main.scss` imports them.
+- Constants are centralized in `src/constants/const.js`.
+- Redux slices live in `src/features/` (auth, jewelry, transactions, wallets).
+- The mock server handles grouped collections by `userId` (grouped arrays) and will create related records (wallet, jewelry, transactions) when a new user signs up.
+
+Common tasks
+
+- Run the server and frontend together (two terminals):
+
+```powershell
+# terminal 1
+node server.js
+
+# terminal 2
+npm start
+```
+
+- Run tests:
+
+```powershell
+npm test
+```
+
+Git notes — pushed was rejected
+
+If you see an error like `! [rejected] main -> main (fetch first)` when pushing, run:
+
+```powershell
+git fetch origin
+git pull --rebase origin main
+# resolve any conflicts, then
+git push origin main
+```
+
+If you need to overwrite the remote branch (be careful), use:
+
+```powershell
+git push --force-with-lease origin main
+```
+
+Troubleshooting
+
+- If API responses show generic errors, the mock server returns structured errors (e.g., `{ code: 'INVALID_PASSWORD', message: 'Invalid password' }`). The frontend surfaces them via the auth slice.
+- If the UI looks broken after SASS changes, stop and restart the dev server and clear the browser cache.
+
+Contributing
+
+This is a demo project; contributions are welcome. Please open a PR and describe the change.
+
+License
+
+MIT
