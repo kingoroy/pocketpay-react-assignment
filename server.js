@@ -62,16 +62,21 @@ const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
   const parts = url.pathname.split('/').filter(Boolean); // e.g. ['api','users']
 
-  // Serve static files from /public if present
-  if (url.pathname === '/' || url.pathname.startsWith('/public') || url.pathname === '/index.html') {
-    const filePath = path.join(__dirname, 'public', url.pathname === '/' ? 'index.html' : url.pathname.replace(/^\//, ''));
+ // Serve React build if exists
+  const buildPath = path.join(__dirname, 'build');
+  if (fs.existsSync(buildPath)) {
+    const indexHtml = path.join(buildPath, 'index.html');
+    if (url.pathname === '/' || url.pathname === '/index.html') {
+      const data = fs.readFileSync(indexHtml);
+      res.writeHead(200, { 'Content-Type': 'text/html' });
+      return res.end(data);
+    }
+    const filePath = path.join(buildPath, url.pathname);
     if (fs.existsSync(filePath)) {
-      const data = fs.readFileSync(filePath);
       const ext = path.extname(filePath).toLowerCase();
-      const map = { '.html':'text/html', '.js':'text/javascript', '.css':'text/css', '.png':'image/png', '.ico':'image/x-icon' };
+      const map = { '.js':'text/javascript', '.css':'text/css', '.png':'image/png', '.ico':'image/x-icon', '.json':'application/json' };
       res.writeHead(200, { 'Content-Type': map[ext] || 'application/octet-stream' });
-      res.end(data);
-      return;
+      return res.end(fs.readFileSync(filePath));
     }
   }
 

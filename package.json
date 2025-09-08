@@ -18,14 +18,14 @@
     "sass": "^1.72.1",
     "web-vitals": "^2.1.4"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "server": "node server.js",
-    "dev": "concurrently \"npm run server\" \"npm start\"",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
+"scripts": {
+  "start": "node server.js",
+  "server": "node server.js",
+  "dev": "concurrently \"npm run server\" \"npm start\"",
+  "build": "react-scripts build",
+  "test": "react-scripts test",
+  "eject": "react-scripts eject"
+},
   "proxy": "http://localhost:5000",
   "eslintConfig": {
     "extends": [
