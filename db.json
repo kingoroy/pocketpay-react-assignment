@@ -105,5 +105,27 @@
         }
       ]
     }
+  ],
+  "auth": [
+    {
+      "id": 1,
+      "email": "k@g.com",
+      "password": "helloSWorld"
+    },
+    {
+      "id": 2,
+      "email": "demo@demo.com",
+      "password": "password"
+    },
+    {
+      "id": 3,
+      "email": "demo@demo.com",
+      "password": "password"
+    },
+    {
+      "id": 4,
+      "email": "demo@demo.com",
+      "password": "password"
+    }
   ]
 }
